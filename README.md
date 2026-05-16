@@ -2,18 +2,26 @@
 
 ## Quick Start (Podman Recommended)
 
-### 1. Create Persistent Volumes (One-time only)
+### 1. Download / Clone the Repository
 ```bash
-podman volume create crypto-tax-tracker_config_data
-podman volume create crypto-tax-tracker_postgres_data
-```
+git clone https://github.com/trubel/crypto-tax-tracker.git
+cd crypto-tax-tracker
 
 ### 2. Start the Container
 ```bash
 podman compose up --build -d
 ```
 
-### 3. Complete Setup via Guided Admin Page Wizard
+### 2. Create Persistent Volumes (One-time only)
+```bash
+podman volume create crypto-tax-tracker_config_data
+podman volume create crypto-tax-tracker_postgres_data
+```
+
+### 3. Start the Container
+podman compose up --build -d
+
+### 4. Complete Setup via Guided Admin Page Wizard
 
 **Immediately after the container starts**, open your browser and go to:
 
@@ -22,10 +30,14 @@ podman compose up --build -d
 Follow the wizard to:
 - Change the default PostgreSQL password
 - Configure JWT secret and other backend settings
-- Enter Coinbase & Uphold OAuth credentials (stored encrypted in the database)
 - Save all configuration
 
 The backend will apply your settings and be ready for use.
+
+**Pull the latest changes** to get the updated README:
+
+```bash
+git pull origin main
 
 ## Docker Alternative
 
